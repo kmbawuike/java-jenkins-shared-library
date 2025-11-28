@@ -1,7 +1,7 @@
 #!/user/bin/env groovy
 
 def call (String sshCredential, String ec2Url, String port, String dockerImageUrl){
-  ssh-agent([sshCredential]){
+  ssh-agent([${sshCredential}]){
     echo 'Deploying to AWS EC2'
     sh "ssh -o StrictHostKeyChecking=no ${ec2Url}"
 
