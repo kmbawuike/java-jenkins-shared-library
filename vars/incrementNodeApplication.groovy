@@ -1,6 +1,6 @@
 #!/user/bin/env groovy
 
-def call() {
+def call(String containerUrl) {
   echo 'Incrementing version'
   def version
   def msg = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim() // print out commit headline
@@ -11,5 +11,5 @@ def call() {
   } else {
       version = sh(script: 'npm version patch', returnStdout: true).trim().replace('v', '')
   }
-  env.IMAGE_NAME = "${version}-${env.BUILD_NUMBER}"
+  env.IMAGE_NAME = "${containerUrl}${version}-${env.BUILD_NUMBER}"
 }
