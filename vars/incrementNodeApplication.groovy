@@ -2,7 +2,7 @@
 
 def call() {
     echo 'Incrementing version'
-    sh "npm version minor —no-git-tag-version"
+    sh "npm version minor --no-git-tag-version"
 
     // read the updated version from the package.json file
     def packageJson = readJSON file: 'package.json'
