@@ -11,5 +11,5 @@ def call(String containerUrl) {
   } else {
       version = sh(script: 'npm version patch', returnStdout: true).trim().replace('v', '')
   }
-  env.IMAGE_NAME = "${containerUrl}${version}-${env.BUILD_NUMBER}"
+  env.IMAGE_NAME = "${containerUrl}:${version}-${env.BUILD_NUMBER}"
 }
